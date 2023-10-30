@@ -15,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/','web.home')->name('web.home');
-Route::get('/addProperty',[PropertyController::class, 'index'])->name('property_index');
-Route::post('/addProperty',[PropertyController::class, 'store'])->name('add_property');
+Route::view('/contact','web.contact-us');
+//Route::get('/addProperty',[PropertyController::class, 'index'])->name('property_index');
+//Route::post('/addProperty',[PropertyController::class, 'store'])->name('add_property');
 
 Route::view('/admins/login','auth.admin_login')->name('admins.login-form');
 Route::post('/dashboard/login','App\Http\Controllers\Auth\AuthController@dashboardLogin')->name('admins.login');

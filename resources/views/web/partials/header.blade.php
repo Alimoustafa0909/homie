@@ -10,7 +10,7 @@
 
                 <div class="col-lg-6 col-md-6">
                     <div class="header-buttons">
-                        <a class="header-btn btn" href="{{route('property_index')}}">Add Property</a>
+{{--                        <a class="header-btn btn" href="{{route('property_index')}}">Add Property</a>--}}
                         <a class="header-btn btn-border" href="register.html">Register</a>
                         <a class="header-btn" href="login.html">Login</a>
                     </div>
