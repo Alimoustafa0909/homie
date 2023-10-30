@@ -26,7 +26,7 @@ return new class extends Migration
             $table->integer('garage');
             $table->integer('area');
             $table->string('image')->nullable();
-            $table->enum('features', ['air_conditioning', 'parking', 'lift', 'bedding', 'balcony','pool','cable_tv','dish_washer','internet','toaster'])->nullable();
+            $table->text('features')->nullable();
             $table->timestamps();
         });
     }
