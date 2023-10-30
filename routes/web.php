@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\PropertyController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/contact','web.contact-us');
+
+Route::resource('contact',ContactController::class)->only(['index','store']);
 
 Route::view('/', 'web.home')->name('web.home');
 

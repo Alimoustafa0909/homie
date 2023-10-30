@@ -52,6 +52,12 @@
 
 <!-- Our Agents Section Start -->
 <div class="contact-section section pt-100 pt-md-80 pt-sm-60 pb-100 pb-md-80 pb-sm-60">
+
+    @if( session()->has('message') )
+        <div class="alert alert-success" role="alert">
+            {{session()->get('message')}}
+        </div>
+    @endif
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -96,26 +102,46 @@
                     <h4>Leave a Message</h4>
 
                     <div class="contact-form">
-                        <form id="contact-form" action="https://htmldemo.net/ortiz/ortiz/assets/php/mail.php">
+                        <form id="contact-form" action="{{route('contact.store')}}" method="post">
+                            @csrf
                             <div class="row row-10">
-                                <div class="col-md-6 col-12 mb-30"><input name="name" type="text" placeholder="Your Name"></div>
-                                <div class="col-md-6 col-12 mb-30"><input name="email" type="email" placeholder="Email"></div>
-                                <div class="col-12 mb-30"><textarea name="message" placeholder="Message"></textarea></div>
-                                <div class="col-12"><button class="btn send-btn btn-circle">Send</button></div>
+                                <div class="col-md-6 col-12 mb-30">
+                                    <input name="name" type="text" placeholder="Your Name">
+                                    @error('name')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-6 col-12 mb-30">
+                                    <input name="email" type="email" placeholder="Email">
+                                    @error('email')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="col-12 mb-30">
+                                    <textarea name="message" placeholder="Message"></textarea>
+                                    @error('message')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="col-12"><button type="submit" class="btn send-btn btn-circle">Send</button></div>
                             </div>
                         </form>
-                        <p class="form-messege"></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+
 </div>
 
 @endsection
 
 @push('scripts')
+
 @endpush
 
 
