@@ -24,9 +24,15 @@
 
     <main class="page-content section">
 
+        @if( session()->has('message') )
+            <div class="alert alert-success" role="alert">
+                {{session()->get('message')}}
+            </div>
+        @endif
+
         <!-- Featured Properites Start -->
         <div class="add-properites-wrap pt-110 pt-110 pt-md-90 pt-sm-70 pt-xs-60 pb-110 pb-md-90 pb-sm-70 pb-xs-60">
-            <form action="{{route('add_property')}}" method="POST">
+            <form action="{{ route('add_property') }}" method="post"    enctype="multipart/form-data">
                 @csrf
                 <div class="container">
                     <div class="row">
@@ -45,18 +51,27 @@
                                                 <div class="input-file">
                                                     <label>Property Title</label>
                                                     <input name="title" type="text" placeholder="Enter your title here">
+                                                    @error('title')
+                                                    <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-5 col-12  mb-25">
                                                 <div class="input-file">
                                                     <label>Price</label>
                                                     <input name="price" type="text" placeholder="Price $">
+                                                    @error('price')
+                                                    <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-12  mb-25">
                                                 <div class="information-text">
                                                     <label>Property Description</label>
                                                     <textarea name="description" placeholder="Write here"></textarea>
+                                                    @error('description')
+                                                    <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -78,6 +93,10 @@
                                                 <div class="input-file">
                                                     <label>Location</label>
                                                     <input name="location" type="text" placeholder="Location">
+                                                    @error('location')
+                                                    <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
+
                                                 </div>
                                             </div>
 
@@ -138,6 +157,11 @@
                                             <div class="col-lg-3 col-md-6 col-12 mb-25">
                                                 <label>Area</label>
                                                 <input name="area" type="text" placeholder="Area (quft)">
+                                                @error('area')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror
+
+
                                             </div>
                                         </div>
 
@@ -157,6 +181,10 @@
                                         <label class="custom-file-upload">
                                             <span><i class="fa fa-folder-open"></i> Browse Images</span> <input
                                                 name="image" type="file">
+                                            @error('image')
+                                            <p class="text-danger">{{ $message }}</p>
+                                            @enderror
+
                                         </label>
                                     </div>
                                 </div>
@@ -170,8 +198,8 @@
                                                 <h4>Property Features</h4>
                                             </div>
                                         </div>
-{{--                                        This @PHP function because i want every two options become on different row and also
-                                             also to make the check box work correctly --}}
+                                        {{--   This @PHP function because i want every two options become on different row and also
+                                               also to make the check box work correctly --}}
                                         @php
                                             $index = 0;
                                         @endphp
@@ -182,8 +210,7 @@
                                                     @endif
                                                     <div class="col-lg-6 col-md-6 col-6">
                                                         <div class="feature-check box1">
-                                                            <input id="remember-{{$index}}" name="features[]"
-                                                                   value="{{$option}}" type="checkbox">
+                                                            <input id="remember-{{$index}}" name="features[]" value="{{$option}}" type="checkbox">
                                                             <label for="remember-{{$index}}">{{$option}}</label>
                                                         </div>
                                                     </div>
@@ -199,7 +226,7 @@
                                 </div>
                             </div>
                             <div class="add-property-submit mt-60">
-                                <button type="submit">ADD PRPPERTY</button>
+                                <button type="submit">ADD PROPERTY</button>
                             </div>
                         </div>
                     </div>
