@@ -50,7 +50,7 @@
 
                             <label class="fs-5 fw-bold mb-2">Name</label>
                             <div class="form-floating">
-                                <input type="text" disabled class="form-control" value="{{ $message->name }}">
+                                <input type="text" disabled class="form-control" value="{{ $contact->name }}">
 
                             </div>
                             @error('name')
@@ -66,7 +66,7 @@
 
                             <label class="fs-5 fw-bold mb-2">Email</label>
                             <div class="form-floating">
-                                <input type="text" disabled class="form-control" value="{{ $message->email }}"/>
+                                <input type="text" disabled class="form-control" value="{{ $contact->email }}"/>
 
                             </div>
                             @error('email')
@@ -88,7 +88,7 @@
 
                             <label class="fs-5 fw-bold mb-2">Message</label>
                             <div class="form-floating">
-                                <input type="text" disabled class="form-control" value="{{ $message->message }}">
+                                <input type="text" disabled class="form-control" value="{{ $contact->message }}">
 
                             </div>
                             @error('message')

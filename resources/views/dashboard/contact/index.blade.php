@@ -18,21 +18,6 @@
                 <!--begin::Toolbar-->
                 <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
 
-{{--                    <!--begin::Add customer-->--}}
-{{--                    <a href="{{ route('dashboard.admins.create') }}" class="btn btn-primary">--}}
-{{--                        <!--begin::Svg Icon | path: icons/duotone/Navigation/Plus.svg-->--}}
-{{--                        <span class="svg-icon svg-icon-2">--}}
-{{--                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
-{{--                                 width="24px" height="24px" viewBox="0 0 24 24" version="1.1">--}}
-{{--                                <rect fill="#000000" x="4" y="11" width="16" height="2" rx="1"/>--}}
-{{--                                <rect fill="#000000" opacity="0.5"--}}
-{{--                                      transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000)"--}}
-{{--                                      x="4" y="11" width="16" height="2" rx="1"/>--}}
-{{--                            </svg>--}}
-{{--                        </span>--}}
-{{--                        <!--end::Svg Icon-->Add Admin--}}
-{{--                    </a>--}}
-{{--                    <!--end::Add customer-->--}}
                 </div>
                 <!--end::Toolbar-->
 
