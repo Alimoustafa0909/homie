@@ -39,7 +39,7 @@
                     <h2>Contact us</h2>
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
                         <li class="breadcrumb-item active">Contact</li>
                     </ul>
                     <!-- breadcrumb-list end -->
@@ -52,6 +52,7 @@
 
 <!-- Our Agents Section Start -->
 <div class="contact-section section pt-100 pt-md-80 pt-sm-60 pb-100 pb-md-80 pb-sm-60">
+
 
     @if( session()->has('message') )
         <div class="alert alert-success" role="alert">
