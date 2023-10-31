@@ -4,7 +4,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6">
                     <div class="header-top-info">
-                        <p class="text-white">Call us - <a href="tel:21548987658">21548 987 658</a></p>
+                        <p class="text-white">Call us - <a >{{ config('website.call-us') }}</a></p>
                     </div>
                 </div>
 

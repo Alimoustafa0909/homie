@@ -73,15 +73,15 @@
                             <li>
                                 <div class="contact-text d-flex align-items-center">
                                     <i class="glyph-icon flaticon-placeholder"></i>
-                                    <p>256, 1st AVE, Manchester <br>125 , Noth England</p>
+                                    <p>{{ $configData['address'] }}</p>
                                 </div>
                             </li>
                             <li>
                                 <div class="contact-text d-flex align-items-center">
                                     <i class="glyph-icon flaticon-call"></i>
                                     <p>
-                                        <span>Telephone : <a href="#"> +88 (012) 356 958 45</a></span>
-                                        <span>Telephone : <a href="#"> +88 (012) 356 958 45</a></span>
+                                        <span>Telephone : <a href="#"> {{$configData['phone1']}}</a></span>
+                                        <span>Telephone : <a href="#"> {{$configData['phone2']}}</a></span>
                                     </p>
                                 </div>
                             </li>
@@ -89,8 +89,8 @@
                                 <div class="contact-text d-flex align-items-center">
                                     <i class="glyph-icon flaticon-earth"></i>
                                     <p>
-                                        <span>Email : <a href="#">info@example.com</a></span>
-                                        <span>Web : <a href="#">www.example.com</a></span>
+                                        <span>Email : <a href="#">{{$configData['email']}}</a></span>
+                                        <span>Web : <a href="#">{{$configData['web']}}</a></span>
                                     </p>
                                 </div>
                             </li>

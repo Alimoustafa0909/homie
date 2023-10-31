@@ -10,7 +10,7 @@
                             <h3>About</h3>
                         </div>
                         <div class="footer-info">
-                            <p>Ortiz is the best and popular real estate to you how all this mistaolt cing pleasure and praising ained wasnad pain was prexplain</p>
+                            <p>{{ config('website.about') }}</p>
                             <div class="newsletter-box">
 
                                 <form id="mc-form" class="mc-form footer-newsletter">
@@ -82,15 +82,15 @@
                                 <li>
                                     <div class="contact-text">
                                         <i class="glyph-icon flaticon-placeholder"></i>
-                                        <p>256, 1st AVE, Manchester <br>125 , Noth England</p>
+                                        <p>{{config('website.address')}}</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="contact-text">
                                         <i class="glyph-icon flaticon-call"></i>
                                         <p>
-                                            <span>Telephone : <a href="tel:1234566789"> +88 (012) 356 958 45</a></span>
-                                            <span>Telephone : <a href="tel:1234566789"> +88 (012) 356 958 45</a></span>
+                                            <span>Telephone : <a >{{ config('website.phone1') }}</a></span>
+                                            <span>Telephone : <a >{{ config('website.phone2') }}</a></span>
                                         </p>
 
                                     </div>
@@ -99,8 +99,8 @@
                                     <div class="contact-text">
                                         <i class="glyph-icon flaticon-earth"></i>
                                         <p>
-                                            <span>Email : <a href="mailto:info@example.com">info@example.com</a></span>
-                                            <span>Web : <a href="https://hasthemes.com/">www.example.com</a></span>
+                                            <span>Email : <a >{{ config('website.email')}}</a></span>
+                                            <span>Web : <a >{{ config('website.web') }}</a></span>
                                         </p>
                                     </div>
                                 </li>
@@ -117,7 +117,7 @@
             <p>&copy;
                 <script>
                     document.write(new Date().getFullYear() + ' ');
-                </script> Copyright <a href="https://hasthemes.com/">HasThemes.</a> All rights reserved.</p>
+                </script> Homie</p>
         </div>
     </div>
 

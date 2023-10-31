@@ -15,7 +15,8 @@ class ContactController extends Controller
     }
     public function index()
     {
-        return view('web.contact-us');
+        $configData = Config('website');
+        return view('web.contact-us',compact('configData'));
     }
 
     public function store(ContactRequest $request)
