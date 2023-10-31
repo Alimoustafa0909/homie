@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PropertyRequest;
+use App\Http\Requests\Web\PropertyRequest;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Services\WebServices\PropertyService;
 class PropertyController extends Controller
 {
+    protected $propertyService;
     public function __construct(PropertyService $propertyService)
     {
         $this->propertyService = $propertyService;

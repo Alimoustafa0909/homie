@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\dashboard;
 
-use App\Http\Requests\AdminRequest;
+use App\Http\Requests\Dashboard\AdminRequest;
 use App\Models\Admin;
 use App\Services\DashboardServices\AdminService;
 use Illuminate\Http\Request;

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\Dashboard\UserRequest;
 use App\Models\User;
 use App\Services\DashboardServices\UserService;
 use Illuminate\Http\Request;

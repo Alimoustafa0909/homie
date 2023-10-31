@@ -1,26 +1,28 @@
 <?php
 
 namespace App\Http\Controllers\Web;
-use App\Models\Contact;
-use Illuminate\Http\Request;
+use App\Http\Requests\Dashboard\ContactRequest;
+use App\Services\WebServices\ContactService;
 use Illuminate\Routing\Controller;
 
 class ContactController extends Controller
 {
+    protected $contactService;
+
+    public function __construct(ContactService $contactService)
+    {
+        $this->contactService = $contactService;
+    }
     public function index()
     {
         return view('web.contact-us');
     }
 
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
-        $attributes = $request->validate([
-            'name' => ['required'],
-            'email' => ['required' ],
-            'message' => ['required' ],
-        ]);
+        $attributes = $request->validated();
 
-        Contact::create($attributes);
+        $this->contactService->store($attributes);
 
         return redirect()->route('contact.index')->with('message','Sent! we will get back to you as soon as possible');
 
