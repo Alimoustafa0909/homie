@@ -3,11 +3,20 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
+use App\Services\DashboardServices\UserService;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    protected $userService;
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
     public function index()
     {
       $users = User::paginate(3);
@@ -19,17 +28,14 @@ class UserController extends Controller
        return view('dashboard.users.create');
     }
 
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $attributes = $request->validate([
-           'name' => ['required','max:255'],
-            'email' => ['required','email','unique:users','max:255'],
-            'phone' => ['required','unique:users','max:15'],
-        ]);
+        $attributes = $request->validated();
 
-        $attributes['password'] = $attributes['phone'];
+        $attributes['image'] = uploadImage($request->file('image'),'users');
 
-        User::create($attributes);
+        $this->userService->store($attributes);
+
 
         return redirect()->route('dashboard.users.index')->with('success_message','The user has been created successfully');
     }
@@ -39,17 +45,13 @@ class UserController extends Controller
         return view('dashboard.users.edit',compact('user'));
     }
 
-    public function update(request $request,User $user)
+    public function update(UserRequest $request,User $user)
     {
-        $attributes = $request->validate([
-            'name' => ['required','max:255'],
-            'email' => ['required','email','unique:users,email,' . $user->id ,'max:255'],
-            'phone' => ['required','unique:users,phone,' . $user->id,'max:15'],
-        ]);
+        $attributes = $request->validated();
+        if ( request()->file('image') )
+            $attributes['image'] = uploadImage($request->file('image'),'users');
 
-        $attributes['password'] = $attributes['phone'];
-
-        $user->update($attributes);
+        $this->userService->Update($user, $attributes);
 
         return redirect()->route('dashboard.users.index')->with('success_message','The user has been Updated successfully');
     }

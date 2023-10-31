@@ -43,7 +43,24 @@
 
                     <!-- begin :: Row -->
                     <div class="row mb-8">
+                        <!-- begin :: Column -->
+                        <div class="col-md-12 text-center mb-5 fv-row">
 
+                            <!--begin::Image input-->
+                            <div class="image-input image-input-empty"
+                                 style="background-image: url('{{ asset('storage/images/users/' . $user['image']) }}')">
+                                <!--begin::Image preview wrapper-->
+                                <div class="image-input-wrapper w-125px h-125px"></div>
+                                <!--end::Image preview wrapper-->
+                            </div>
+                            <!--end::Image input-->
+
+                            @error('image')
+                            <p class="text-danger">{{ $message }}</p>
+                            @enderror
+
+                        </div>
+                        <!-- end   :: Column -->
                         <!-- begin :: Column -->
                         <div class="col-md-6 fv-row">
 

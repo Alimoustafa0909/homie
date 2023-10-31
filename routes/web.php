@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\PropertyController;
 use Illuminate\Support\Facades\Route;
@@ -23,5 +24,5 @@ Route::post('/property/store', [PropertyController::class, 'store'])->name('add_
 
 
 Route::view('/admins/login', 'auth.admin_login')->name('admins.login-form');
-Route::post('/dashboard/login', 'App\Http\Controllers\Auth\AuthController@dashboardLogin')->name('admins.login');
-Route::post('/logout', 'App\Http\Controllers\Auth\AuthController@logout')->name('dashboard.logout');
+Route::post('/dashboard/login', [AuthController::class,'dashboardLogin'])->name('admins.login');
+Route::post('/logout', [AuthController::class,'logout'])->name('dashboard.logout');
