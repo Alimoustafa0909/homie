@@ -33,17 +33,7 @@
                     <div class="header-mid_right-bar">
                         <nav class="main-menu d-lg-block d-none">
                             <ul>
-                                <li class="has-dropdown"><a href="/">Home</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.html">Home one</a></li>
-                                        <li><a href="index-2.html">Home two</a></li>
-                                        <li><a href="index-3.html">Home three</a></li>
-                                        <li><a href="index-4.html">Home Four</a></li>
-                                        <li><a href="index-5.html">Home Five</a></li>
-                                        <li><a href="index-6.html">Home Six</a></li>
-                                        <li><a href="index-7.html">Home Seven</a></li>
-                                    </ul>
-                                </li>
+                                <li class="has-dropdown"><a href="/">Home</a></li>
                                 <li class="has-dropdown"><a href="service.html">Services</a>
                                     <ul class="sub-menu">
                                         <li><a href="service.html">Services</a></li>
@@ -54,10 +44,9 @@
                                 <li class="has-dropdown"><a href="{{route('property_index')}}">Properties</a>
                                     <ul class="sub-menu">
                                         <li><a href="{{route('property_index')}}">Properties</a></li>
-                                        <li><a href="properties-left-sidebar.html">Properties Left Sidebar</a></li>
-                                        <li><a href="properties-right-sidebar.html">Properties Right Sidebar</a></li>
+
                                         <li><a href="properties-details.html">Properties Details</a></li>
-                                        <li><a href="add-property.html">Add Propertie</a></li>
+                                        <li><a href="{{route('property_show')}}">Your Properties</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-dropdown"><a href="#">Pages</a>
