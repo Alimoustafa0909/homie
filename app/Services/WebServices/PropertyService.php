@@ -16,7 +16,9 @@ class PropertyService
             $attributes['features'] = implode(',', $attributes['features']);
         }
         // Upload the image and set the image attribute
-        $attributes['image'] = uploadImage($request->file('image'), 'property');
+
+        if($request->file('image'))
+           $attributes['image'] = uploadImage($request->file('image'), 'property');
 
         Property::create($attributes);
     }

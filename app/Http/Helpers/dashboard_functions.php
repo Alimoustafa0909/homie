@@ -10,7 +10,7 @@ function uploadImage($image,$modelName) : string
 
 if(!function_exists('getImagePath')){
 
-    function getImagePath( $imageName = null , $defaultImage = 'default.jpg' , $folder = null ): string
+    function getImagePath( $imageName = null , $defaultImage = 'default_image.jpg' , $folder = null ): string
     {
         $imagePath = public_path("/storage/images/$folder/$imageName");
 
