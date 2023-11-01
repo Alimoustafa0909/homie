@@ -17,14 +17,25 @@ class PropertyController extends Controller
 
     public function index()
     {
+        $properties=Property::paginate(12);
+        $properties_buy=Property::where('status','For Buy')->paginate(12);
+        $properties_sale=Property::where('status','For Sale')->paginate(12);
+        $properties_rent=Property::where('status','For Rent')->paginate(12);
+
+        return view('web.property.index',compact('properties','properties_buy','properties_sale','properties_rent'));
+    }
+
+
+    public function create()
+    {
         $featuresEnum = ['air_conditioning', 'parking', 'lift', 'Bedding', 'Balcony', 'pool', 'cable_tv', 'dish_washer', 'internet', 'toaster'];
-        return view('web.property', compact('featuresEnum'));
+        return view('web.property.create', compact('featuresEnum'));
     }
 
 //    Add Property
     public function store(PropertyRequest $request)
     {
         $this->propertyService->addProperty($request);
-        return redirect()->route('property_index')->with('message', 'The Property has been Added Successfully');
+        return redirect()->route('property_create')->with('message', 'The Property has been Added Successfully');
     }
 }

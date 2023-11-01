@@ -19,8 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::resource('contact', ContactController::class)->only(['index', 'store']);
 Route::view('/', 'web.home')->name('web.home');
 
-Route::get('/addProperty', [PropertyController::class, 'index'])->name('property_index');
-Route::post('/property/store', [PropertyController::class, 'store'])->name('add_property');
+Route::get('/properties', [PropertyController::class, 'index'])->name('property_index');
+Route::get('/addProperty', [PropertyController::class, 'create'])->name('property_create');
+Route::post('/property/store', [PropertyController::class, 'store'])->name('property_store');
 
 
 Route::view('/admins/login', 'auth.admin_login')->name('admins.login-form');

@@ -2,7 +2,7 @@
 
 namespace App\Services\WebServices;
 
-use App\Http\Requests\PropertyRequest;
+use App\Http\Requests\Web\PropertyRequest;
 use App\Models\Property;
 
 class PropertyService
