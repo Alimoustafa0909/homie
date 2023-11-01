@@ -10,7 +10,7 @@
 
                 <div class="col-lg-6 col-md-6">
                     <div class="header-buttons">
-                        <a class="header-btn btn" href="{{route('property_index')}}">Add Property</a>
+                        <a class="header-btn btn" href="{{route('property_create')}}">Add Property</a>
                         <a class="header-btn btn-border" href="register.html">Register</a>
                         <a class="header-btn" href="login.html">Login</a>
                     </div>
@@ -33,7 +33,7 @@
                     <div class="header-mid_right-bar">
                         <nav class="main-menu d-lg-block d-none">
                             <ul>
-                                <li class="has-dropdown"><a href="index.html">Home</a>
+                                <li class="has-dropdown"><a href="/">Home</a>
                                     <ul class="sub-menu">
                                         <li><a href="index.html">Home one</a></li>
                                         <li><a href="index-2.html">Home two</a></li>
@@ -51,9 +51,9 @@
                                     </ul>
                                 </li>
                                 <li><a href="features.html">Features</a></li>
-                                <li class="has-dropdown"><a href="properties.html">Properties</a>
+                                <li class="has-dropdown"><a href="{{route('property_index')}}">Properties</a>
                                     <ul class="sub-menu">
-                                        <li><a href="properties.html">Properties</a></li>
+                                        <li><a href="{{route('property_index')}}">Properties</a></li>
                                         <li><a href="properties-left-sidebar.html">Properties Left Sidebar</a></li>
                                         <li><a href="properties-right-sidebar.html">Properties Right Sidebar</a></li>
                                         <li><a href="properties-details.html">Properties Details</a></li>
