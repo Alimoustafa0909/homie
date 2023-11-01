@@ -41,9 +41,8 @@ class AdminController extends Controller
 
     public function store(AdminRequest $request)
     {
-        $attributes = $request->validated();
 
-        $this->adminService->store($attributes);
+        $this->adminService->store($request);
 
         return redirect()->route('dashboard.admins.index')->with('success_message', 'The new admin has been added successfully');
 
@@ -51,8 +50,7 @@ class AdminController extends Controller
 
     public function update(AdminRequest $request, Admin $admin)
     {
-        $attributes = $request->validated();
-        $this->adminService->Update($admin, $attributes);
+        $this->adminService->Update($admin, $request);
 
         return redirect()->route('dashboard.admins.index')->with('success_message', 'The admin has been updated successfully');
 

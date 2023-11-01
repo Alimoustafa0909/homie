@@ -21,9 +21,8 @@ class ContactController extends Controller
 
     public function store(ContactRequest $request)
     {
-        $attributes = $request->validated();
 
-        $this->contactService->store($attributes);
+        $this->contactService->store($request);
 
         return redirect()->route('contact.index')->with('message','Sent! we will get back to you as soon as possible');
 

@@ -30,12 +30,7 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {
-        $attributes = $request->validated();
-
-        $attributes['image'] = uploadImage($request->file('image'),'users');
-
-        $this->userService->store($attributes);
-
+        $this->userService->store($request);
 
         return redirect()->route('dashboard.users.index')->with('success_message','The user has been created successfully');
     }
@@ -47,11 +42,8 @@ class UserController extends Controller
 
     public function update(UserRequest $request,User $user)
     {
-        $attributes = $request->validated();
-        if ( request()->file('image') )
-            $attributes['image'] = uploadImage($request->file('image'),'users');
 
-        $this->userService->Update($user, $attributes);
+        $this->userService->Update($user, $request);
 
         return redirect()->route('dashboard.users.index')->with('success_message','The user has been Updated successfully');
     }

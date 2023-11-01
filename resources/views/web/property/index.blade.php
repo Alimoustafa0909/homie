@@ -27,7 +27,7 @@
                                     <div class="single-property mt-30">
                                         <div class="property-img">
                                             <a href="properties-details.html">
-                                                <img src="{{ asset('storage/images/property/' . $property['image']) }}"
+                                                <img src="{{ getImagePath(imageName:$property->image,folder:'property')}}"
                                                      width="300" height="300">
                                             </a>
                                             <span class="level-stryker">{{$property->status}}</span>

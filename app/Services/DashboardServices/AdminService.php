@@ -8,15 +8,19 @@ use App\Models\Admin;
 
 class AdminService
 {
-    public function Update( $admin,array $attributes)
+    public function Update( $admin,$request)
     {
+        $attributes = $request->validated();
+
         $attributes['password'] = $attributes['phone'];
 
         $admin->update($attributes);
   }
 
-    public function store(array $attributes)
+    public function store($request)
     {
+        $attributes = $request->validated();
+
         $attributes['password'] = $attributes['phone'];
         Admin::create($attributes);
 
