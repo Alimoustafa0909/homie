@@ -21,11 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('web.home');
 Route::get('myProperties', [PropertyController::class, 'myProperty'])->name('myProperty');
 
-
 Route::view('/admins/login', 'auth.admin_login')->name('admins.login-form');
 Route::post('/dashboard/login', [AuthController::class, 'dashboardLogin'])->name('admins.login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('dashboard.logout');
 
 Route::resource('contact', ContactController::class)->only(['index', 'store']);
-Route::resource('property', PropertyController::class);
+Route::resource('properties', PropertyController::class);
 Route::resource('comments', CommentController::class)->only([ 'store']);

@@ -10,7 +10,7 @@
 
                 <div class="col-lg-6 col-md-6">
                     <div class="header-buttons">
-                        <a class="header-btn btn" href="{{route('property.create')}}">Add Property</a>
+                        <a class="header-btn btn" href="{{route('properties.create')}}">Add Property</a>
                         <a class="header-btn btn-border" href="register.html">Register</a>
                         <a class="header-btn" href="login.html">Login</a>
                     </div>
@@ -41,9 +41,9 @@
                                     </ul>
                                 </li>
                                 <li><a href="features.html">Features</a></li>
-                                <li class="has-dropdown"><a href="{{route('property.index')}}">Properties</a>
+                                <li class="has-dropdown"><a href="{{route('properties.index')}}">Properties</a>
                                     <ul class="sub-menu">
-                                        <li><a href="{{route('property.index')}}">Properties</a></li>
+                                        <li><a href="{{route('properties.index')}}">Properties</a></li>
 
                                         <li><a href="properties-details.html">Properties Details</a></li>
                                         @auth

@@ -51,7 +51,7 @@
                     </div>
                     @else
                         <h1> You Didn't Add Any Property Yet  </h1>
-                        <a href="{{route('property.index')}}" type="button"> Try to Add Property </a>
+                        <a href="{{route('properties.index')}}" type="button"> Try to Add Property </a>
                     @endif
                 </div>
             </div>

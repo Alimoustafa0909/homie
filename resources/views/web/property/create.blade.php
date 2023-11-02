@@ -32,7 +32,7 @@
 
         <!-- Featured Properites Start -->
         <div class="add-properites-wrap pt-110 pt-110 pt-md-90 pt-sm-70 pt-xs-60 pb-110 pb-md-90 pb-sm-70 pb-xs-60">
-            <form action="{{ route('property.store') }}" method="post"    enctype="multipart/form-data">
+            <form action="{{ route('properties.store') }}" method="post"    enctype="multipart/form-data">
                 @csrf
                 <div class="container">
                     <div class="row">

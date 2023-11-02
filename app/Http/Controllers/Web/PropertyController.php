@@ -40,7 +40,7 @@ class PropertyController extends Controller
     public function store(PropertyRequest $request)
     {
         $this->propertyService->addProperty($request);
-        return redirect()->route('property.create')->with('message', 'The Property has been Added Successfully');
+        return redirect()->route('properties.create')->with('message', 'The Property has been Added Successfully');
     }
 
     public function show(Property $property)
@@ -52,7 +52,7 @@ class PropertyController extends Controller
         $comments = Comment::orderBy('created_at', 'desc')
             ->paginate(4);
         return view('web.property.show', compact('property','features','latest','comments'));
-        
+
     }
 
     public function myProperty()
