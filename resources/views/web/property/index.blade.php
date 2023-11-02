@@ -36,10 +36,10 @@
                                             <h4><a href="{{route('property.show',$property)}}">{{$property->title}} </a></h4>
                                             <p>
                                                 <span class="location">{{$property->location}},</span>
-                                                <span class="property-info">{{$property->area}} Sqft, {{$property->bedroom}} Bed, {{$property->bathroom}} Bath, {{$property->garage}} Garage </span>
+                                                <span class="property-info">{{$property->area}} Sqft, {{$property->bedroom}} Bedroom, {{$property->bathroom}} Bathroom, {{$property->garage}} Garage </span>
                                             </p>
                                             <div class="price-box">
-                                                <p>Price $ {{$property->price}}</p>
+                                                <p>Price ${{$property->price}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -68,10 +68,10 @@
                                             <h4><a href="{{route('property.show',$property)}}">{{$property->title}} </a></h4>
                                             <p>
                                                 <span class="location">{{$property->location}},</span>
-                                                <span class="property-info">{{$property->area}} Sqft, {{$property->bedroom}} Bed, {{$property->bathroom}} Bath, {{$property->garage}} Garage </span>
+                                                <span class="property-info">{{$property->area}} Sqft, {{$property->bedroom}} Bedroom, {{$property->bathroom}} Bathroom, {{$property->garage}} Garage </span>
                                             </p>
                                             <div class="price-box">
-                                                <p>Price $ {{$property->price}}</p>
+                                                <p>Price ${{$property->price}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -101,7 +101,7 @@
                                             <h4><a href="{{route('property.show',$property)}}">{{$property->title}} </a></h4>
                                             <p>
                                                 <span class="location">{{$property->location}},</span>
-                                                <span class="property-info">{{$property->area}} Sqft, {{$property->bedroom}} Bed, {{$property->bathroom}} Bath, {{$property->garage}} Garage </span>
+                                                <span class="property-info">{{$property->area}} Sqft, {{$property->bedroom}} Bedroom, {{$property->bathroom}} Bathroom, {{$property->garage}} Garage </span>
                                             </p>
                                             <div class="price-box">
                                                 <p>Price ${{$property->price}}</p>
@@ -133,10 +133,10 @@
                                             <h4><a href="{{route('property.show',$property)}}">{{$property->title}} </a></h4>
                                             <p>
                                                 <span class="location">{{$property->location}},</span>
-                                                <span class="property-info">{{$property->area}} Sqft, {{$property->bedroom}} Bed, {{$property->bathroom}} Bath, {{$property->garage}} Garage </span>
+                                                <span class="property-info">{{$property->area}} Sqft, {{$property->bedroom}} Bedroom, {{$property->bathroom}} Bathroom, {{$property->garage}} Garage </span>
                                             </p>
                                             <div class="price-box">
-                                                <p>Price $ {{$property->price}}</p>
+                                                <p>Price ${{$property->price}}</p>
                                             </div>
                                         </div>
                                     </div>
