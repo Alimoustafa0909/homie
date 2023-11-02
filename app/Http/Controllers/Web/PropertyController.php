@@ -34,11 +34,6 @@ class PropertyController extends Controller
         return view('web.property.create', compact('featuresEnum'));
     }
 
-    public function show()
-    {
-        $properties = Property::all();
-        return view('web.property.show', compact('properties'));
-    }
 
 //    Add Property
     public function store(PropertyRequest $request)
@@ -47,4 +42,19 @@ class PropertyController extends Controller
         return redirect()->route('property.create')->with('message', 'The Property has been Added Successfully');
     }
 
+    public function show(Property $property)
+    {
+        $features = explode(',', $property->features);
+        $latest = Property::orderBy('created_at', 'desc')
+            ->take(3)
+            ->get();
+        return view('web.property.show', compact('property', 'features', 'latest'));
+
+    }
+
+    public function myProperty()
+    {
+        $properties = Property::all();
+        return view('web.property.my-properties', compact('properties'));
+    }
 }
