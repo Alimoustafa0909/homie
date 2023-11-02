@@ -52,8 +52,7 @@ class PropertyController extends Controller
         $comments = Comment::orderBy('created_at', 'desc')
             ->paginate(4);
         return view('web.property.show', compact('property','features','latest','comments'));
-
-
+        
     }
 
     public function myProperty()

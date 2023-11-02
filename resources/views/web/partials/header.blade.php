@@ -47,7 +47,7 @@
 
                                         <li><a href="properties-details.html">Properties Details</a></li>
                                         @auth
-                                            <li><a href="{{ route('property.show', auth()->user()->id) }}">Your Properties</a></li>
+                                            <li><a href="{{ route('myProperty', auth()->user()->id) }}">Your Properties</a></li>
                                         @endauth
 
                                     </ul>
