@@ -10,6 +10,13 @@
                     <div class="card-header">
                         <h4 class="text-primary">My Properties</h4>
                     </div>
+
+                    @if( session()->has('message') )
+                        <div class="alert alert-success" role="alert">
+                            {{session()->get('message')}}
+                        </div>
+                    @endif
+
                     <div class="card-body">
                         @if($properties->count() > 0)
                             <table class="table table-bordered">
@@ -34,7 +41,7 @@
                                         <td>{{ $property->status }}</td>
                                         <td>
                                             <a href="." class="btn btn-light-dark"> Edit</a>
-                                            <a href="." class="btn btn-light-primary"> Delete</a>
+                                            <a href="." class="btn btn-light-primary">Delete</a>
 
                                         </td>
                                     </tr>
@@ -43,8 +50,8 @@
                             </table>
                     </div>
                     @else
-                        <h1> There is no Orders For You </h1>
-                        <a type="button"> Continue Shopping</a>
+                        <h1> You Didn't Add Any Property Yet  </h1>
+                        <a href="{{route('property.index')}}" type="button"> Try to Add Property </a>
                     @endif
                 </div>
             </div>

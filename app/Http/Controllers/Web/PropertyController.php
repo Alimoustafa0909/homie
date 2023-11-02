@@ -37,15 +37,14 @@ class PropertyController extends Controller
     public function show()
     {
         $properties = Property::all();
-        return view('web.property.show',compact('properties'));
+        return view('web.property.show', compact('properties'));
     }
 
 //    Add Property
     public function store(PropertyRequest $request)
     {
         $this->propertyService->addProperty($request);
-        return redirect()->route('property_create')->with('message', 'The Property has been Added Successfully');
+        return redirect()->route('property.create')->with('message', 'The Property has been Added Successfully');
     }
-
 
 }

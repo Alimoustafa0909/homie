@@ -10,7 +10,7 @@
 
                 <div class="col-lg-6 col-md-6">
                     <div class="header-buttons">
-                        <a class="header-btn btn" href="{{route('property_create')}}">Add Property</a>
+                        <a class="header-btn btn" href="{{route('property.create')}}">Add Property</a>
                         <a class="header-btn btn-border" href="register.html">Register</a>
                         <a class="header-btn" href="login.html">Login</a>
                     </div>
@@ -41,12 +41,15 @@
                                     </ul>
                                 </li>
                                 <li><a href="features.html">Features</a></li>
-                                <li class="has-dropdown"><a href="{{route('property_index')}}">Properties</a>
+                                <li class="has-dropdown"><a href="{{route('property.index')}}">Properties</a>
                                     <ul class="sub-menu">
-                                        <li><a href="{{route('property_index')}}">Properties</a></li>
+                                        <li><a href="{{route('property.index')}}">Properties</a></li>
 
                                         <li><a href="properties-details.html">Properties Details</a></li>
-                                        <li><a href="{{route('property_show')}}">Your Properties</a></li>
+                                        @auth
+                                            <li><a href="{{ route('property.show', auth()->user()->id) }}">Your Properties</a></li>
+                                        @endauth
+
                                     </ul>
                                 </li>
                                 <li class="has-dropdown"><a href="#">Pages</a>

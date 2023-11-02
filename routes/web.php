@@ -19,11 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('contact', ContactController::class)->only(['index', 'store']);
 Route::get('/', [HomeController::class,'index'])->name('web.home');
+Route::resource('property', PropertyController::class);
 
-Route::get('/properties', [PropertyController::class, 'index'])->name('property_index');
-Route::get('/property/create', [PropertyController::class, 'create'])->name('property_create');
-Route::get('/property/show', [PropertyController::class, 'show'])->name('property_show');
-Route::post('/property/store', [PropertyController::class, 'store'])->name('property_store');
+//Route::get('/properties', [PropertyController::class, 'index'])->name('property_index');
+//Route::get('/property/create', [PropertyController::class, 'create'])->name('property_create');
+//Route::get('/property/show', [PropertyController::class, 'show'])->name('property_show');
+//Route::post('/property/store', [PropertyController::class, 'store'])->name('property_store');
 
 Route::view('/admins/login', 'auth.admin_login')->name('admins.login-form');
 Route::post('/dashboard/login', [AuthController::class,'dashboardLogin'])->name('admins.login');
