@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Web\CommentController;
 use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\PropertyController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('contact', ContactController::class)->only(['index', 'store']);
+Route::resource('comments', CommentController::class)->only([ 'store']);
 Route::view('/', 'web.home')->name('web.home');
 Route::view('/property/show', 'web.property.show')->name('property.show');
 Route::get('properties/{property}',[PropertyController::class,'show'])->name('property.show');

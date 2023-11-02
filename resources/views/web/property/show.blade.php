@@ -53,7 +53,11 @@
 
     <!-- Page Conttent -->
     <main class="page-content section">
-
+        @if( session()->has('message') )
+            <div class="alert alert-success" role="alert">
+                {{session()->get('message')}}
+            </div>
+    @endif
         <!-- Featured Properites Start -->
         <div class="properites-sidebar-wrap pt-100 pt-md-80 pt-sm-60 pb-100 pb-md-80 pb-sm-60">
             <div class="container">
@@ -146,63 +150,60 @@
                                 <h4>Comments</h4>
 
                                 <ul class="comment-list">
+                                    @foreach($comments as $comment)
                                     <li>
                                         <div class="comment">
-                                            <div class="image"><img src="assets/images/review/01.png" alt=""></div>
+                                            <div class="image"><img src="{{getImagePath(imageName:$comment->image,folder:'comments')}}" alt=""></div>
                                             <div class="content">
-                                                <h5>Luci Chunni</h5>
+                                                <h5>{{$comment->name}}</h5>
                                                 <div class="d-flex flex-wrap justify-content-between">
-                                                    <span class="time">6 hour ago</span>
+                                                    <span class="time">{{$comment->created_at->diffForHumans()}}</span>
                                                 </div>
                                                 <div class="decs">
-                                                    <p>There are some business lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu tepunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudt </p>
+                                                    <p> {{$comment->message}} </p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <ul class="child-comment">
-                                            <li>
-                                                <div class="comment">
-                                                    <div class="image"><img src="assets/images/review/02.png" alt=""></div>
-                                                    <div class="content">
-                                                        <h5>Devid Bepari</h5>
-                                                        <div class="d-flex flex-wrap justify-content-between">
-                                                            <span class="time">10 hour ago</span>
-                                                        </div>
-                                                        <div class="decs">
-                                                            <p>There are some business lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu tempunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+
                                     </li>
-                                    <li>
-                                        <div class="comment">
-                                            <div class="image"><img src="assets/images/review/03.png" alt=""></div>
-                                            <div class="content">
-                                                <h5>Neha Jhograti</h5>
-                                                <div class="d-flex flex-wrap justify-content-between">
-                                                    <span class="time">6 hour ago</span>
-                                                </div>
-                                                <div class="decs">
-                                                    <p>But I must explain to you how all this mistaken idea of denouncing pleasure and ising pain borand I will give you a complete account of the system</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                 @endforeach
                                 </ul>
 
                                 <h4>Leave a Comments</h4>
 
                                 <div class="comment-form">
-                                    <form action="#">
+                                    <form action="{{route('comments.store')}}" method="post" enctype="multipart/form-data">
+
+                                        @csrf
                                         <div class="row">
-                                            <div class="col-md-6 col-12 mb-30"><input type="text" placeholder="Your Name"></div>
-                                            <div class="col-md-6 col-12 mb-30"><input type="email" placeholder="Email"></div>
-                                            <div class="col-md-6 col-12 mb-30"><input type="text" placeholder="Phone"></div>
-                                            <div class="col-md-6 col-12 mb-30"><input type="text" placeholder="Subject"></div>
-                                            <div class="col-12 mb-30"><textarea placeholder="Message"></textarea></div>
-                                            <div class="col-12"><button class="btn send-btn btn-circle">Send</button></div>
+                                            <div class="col-md-6 col-12 mb-30"><input type="text" name="name" placeholder="Your Name">
+                                                @error('name')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+                                            <div class="col-md-6 col-12 mb-30"><input type="email" name="email" placeholder="Email">
+                                                @error('email')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+                                            <div class="col-md-6 col-12 mb-30"><input type="text" name="phone" placeholder="Phone">
+                                                @error('phone')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror</div>
+                                            <div class="col-md-6 col-12 mb-30"><input type="text" name="subject" placeholder="Subject">
+                                                @error('subject')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror</div>
+                                            <div class="col-md-6 col-12 mb-30"><input hidden="hidden" type="file" name="image" value="{{auth()->user()->image??null}}">
+                                                @error('image')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+                                            <div class="col-12 mb-30"><textarea name="message" placeholder="Message"></textarea>
+                                                @error('message')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror</div>
+                                            <div class="col-12"><button type="submit" class="btn send-btn btn-circle">Send</button></div>
                                         </div>
                                     </form>
                                 </div>

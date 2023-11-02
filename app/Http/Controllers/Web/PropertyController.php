@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\PropertyRequest;
+use App\Models\Comment;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Services\WebServices\PropertyService;
@@ -45,7 +46,9 @@ class PropertyController extends Controller
 $latest = Property::orderBy('created_at', 'desc')
     ->take(3)
     ->get();
-        return view('web.property.show', compact('property','features','latest'));
+        $comments = Comment::orderBy('created_at', 'desc')
+            ->paginate(4);
+        return view('web.property.show', compact('property','features','latest','comments'));
 
     }
 }
