@@ -7,6 +7,7 @@ Route::group(['namespace' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 
     Route::view('/', 'dashboard.index');
     Route::resource('admins', 'AdminController');
     Route::resource('users', 'UserController');
+    Route::resource('agents', 'AgentController');
     Route::resource('contact', 'ContactController')->except(['store', 'create', 'edit', 'update']);
     Route::resource('property', 'PropertyController')->only(['index', 'destroy','show']);
 
