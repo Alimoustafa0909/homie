@@ -47,5 +47,13 @@ class PropertyController extends Controller
         return redirect()->route('property_create')->with('message', 'The Property has been Added Successfully');
     }
 
+    public function show(Property $property)
+    {
+        $features = explode(',', $property->features);
+$latest = Property::orderBy('created_at', 'desc')
+    ->take(3)
+    ->get();
+        return view('web.property.show', compact('property','features','latest'));
 
+    }
 }

@@ -20,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 Route::resource('contact', ContactController::class)->only(['index', 'store']);
 Route::get('/', [HomeController::class,'index'])->name('web.home');
 
+
+Route::view('/', 'web.home')->name('web.home');
+Route::view('/property/show', 'web.property.show')->name('property.show');
+Route::get('properties/{property}',[PropertyController::class,'show'])->name('property.show');
 Route::get('/properties', [PropertyController::class, 'index'])->name('property_index');
 Route::get('/property/create', [PropertyController::class, 'create'])->name('property_create');
 Route::get('/property/show', [PropertyController::class, 'show'])->name('property_show');
