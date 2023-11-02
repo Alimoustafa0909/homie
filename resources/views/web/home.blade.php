@@ -135,190 +135,34 @@
 
             <div class="section-title text-center mb-30 mb-md-20 mb-sm-20">
                 <h2>Property for Sale</h2>
-                <p> one of the most popular real estate company all around USA. You <br> can find your dream property or build property with us</p>
             </div>
 
             <div class="row">
 
+                @foreach($properties_sale as $property)
                 <div class="col-lg-3 col-sm-6">
                     <!-- single-property Start -->
                     <div class="single-property mt-30">
                         <div class="property-img">
                             <a href="properties-details.html">
-                                <img src="assets/images/propertes/01.jpg" alt="">
+                                <img src="{{getImagePath(imageName: $property->image,folder: 'property')}}" width="300" height="300">
                             </a>
-                            <span class="level-stryker">FOR RENT</span>
+                            <span class="level-stryker">{{$property->status}}</span>
                         </div>
                         <div class="property-desc">
-                            <h4><a href="properties-details.html">Mariyasa de Casel </a></h4>
+                            <h4><a href="properties-details.html">{{$property->title}} </a></h4>
                             <p>
-                                <span class="location">22 First street, Chicago, USA</span>
-                                <span class="property-info">1200 Sqft, 3 Bed, 2 Bath, 1 Garage </span>
+                                <span class="location">{{$property->location}},</span>
+                                <span class="property-info">{{$property->area}} Sqft, {{$property->bedroom}} Bedroom, {{$property->bathroom}} Bathroom, {{$property->garage}} Garage </span>
                             </p>
                             <div class="price-box">
-                                <p>Price $1,25,000</p>
+                                <p>Price ${{$property->price}}</p>
                             </div>
                         </div>
                     </div>
                     <!-- single-property End -->
                 </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <!-- single-property Start -->
-                    <div class="single-property mt-30">
-                        <div class="property-img">
-                            <a href="properties-details.html">
-                                <img src="assets/images/propertes/02.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="property-desc">
-                            <h4><a href="properties-details.html">Rose de Alfanez</a></h4>
-                            <p>
-                                <span class="location">132 Future Street, Boston, USA</span>
-                                <span class="property-info">1600 Sqft, 4 Bed, 2 Bath, 2 Garage </span>
-                            </p>
-                            <div class="price-box">
-                                <p>Price $70,250</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-property End -->
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <!-- single-property Start -->
-                    <div class="single-property mt-30">
-                        <div class="property-img">
-                            <a href="properties-details.html">
-                                <img src="assets/images/propertes/03.jpg" alt="">
-                            </a>
-                            <span class="level-stryker-2">FOR RENT</span>
-                        </div>
-                        <div class="property-desc">
-                            <h4><a href="properties-details.html">La Casanda Villa</a></h4>
-                            <p>
-                                <span class="location">1 DE Silicon Tower, Denver</span>
-                                <span class="property-info">1800 Sqft, 6 Bed, 4 Bath, 3 Garage </span>
-                            </p>
-                            <div class="price-box">
-                                <p>Price $1,50,000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-property End -->
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <!-- single-property Start -->
-                    <div class="single-property mt-30">
-                        <div class="property-img">
-                            <a href="properties-details.html">
-                                <img src="assets/images/propertes/04.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="property-desc">
-                            <h4><a href="properties-details.html">Rainforest de Olive</a></h4>
-                            <p>
-                                <span class="location">22 First street, Chicago, USA</span>
-                                <span class="property-info">1200 Sqft, 3 Bed, 2 Bath, 1 Garage </span>
-                            </p>
-                            <div class="price-box">
-                                <p>Price $92,000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-property End -->
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <!-- single-property Start -->
-                    <div class="single-property mt-30">
-                        <div class="property-img">
-                            <a href="properties-details.html">
-                                <img src="assets/images/propertes/05.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="property-desc">
-                            <h4><a href="properties-details.html">Mariyasa de Casel </a></h4>
-                            <p>
-                                <span class="location">22 First street, Chicago, USA</span>
-                                <span class="property-info">1200 Sqft, 3 Bed, 2 Bath, 1 Garage </span>
-                            </p>
-                            <div class="price-box">
-                                <p>Price $1,90,000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-property End -->
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <!-- single-property Start -->
-                    <div class="single-property mt-30">
-                        <div class="property-img">
-                            <a href="properties-details.html">
-                                <img src="assets/images/propertes/06.jpg" alt="">
-                            </a>
-                            <span class="level-stryker-2">FOR RENT</span>
-                        </div>
-                        <div class="property-desc">
-                            <h4><a href="properties-details.html">Rose de Alfanez</a></h4>
-                            <p>
-                                <span class="location">132 Future Street, Boston, USA</span>
-                                <span class="property-info">1600 Sqft, 4 Bed, 2 Bath, 2 Garage </span>
-                            </p>
-                            <div class="price-box">
-                                <p>Price $70,250</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-property End -->
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <!-- single-property Start -->
-                    <div class="single-property mt-30">
-                        <div class="property-img">
-                            <a href="properties-details.html">
-                                <img src="assets/images/propertes/07.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="property-desc">
-                            <h4><a href="properties-details.html">La Casanda Villa</a></h4>
-                            <p>
-                                <span class="location">1 DE Silicon Tower, Denver</span>
-                                <span class="property-info">1800 Sqft, 6 Bed, 4 Bath, 3 Garage </span>
-                            </p>
-                            <div class="price-box">
-                                <p>Price $2,25,000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-property End -->
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <!-- single-property Start -->
-                    <div class="single-property mt-30">
-                        <div class="property-img">
-                            <a href="properties-details.html">
-                                <img src="assets/images/propertes/08.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="property-desc">
-                            <h4><a href="properties-details.html">Rainforest de Olive</a></h4>
-                            <p>
-                                <span class="location">22 First street, Chicago, USA</span>
-                                <span class="property-info">1200 Sqft, 3 Bed, 2 Bath, 1 Garage </span>
-                            </p>
-                            <div class="price-box">
-                                <p>Price $1,05,000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-property End -->
-                </div>
-
+                @endforeach
             </div>
 
         </div>
@@ -411,100 +255,33 @@
 
             <div class="section-title text-center mb-30 mb-md-20 mb-sm-20">
                 <h2>Property for Rent</h2>
-                <p> one of the most popular real estate company all around USA. You <br> can find your dream property or build property with us</p>
             </div>
 
             <div class="row">
-
-                <div class="col-lg-3 col-sm-6">
-                    <!-- single-property Start -->
-                    <div class="single-property mt-30">
-                        <div class="property-img">
-                            <a href="properties-details.html">
-                                <img src="assets/images/propertes/01.jpg" alt="">
-                            </a>
-                            <span class="level-stryker">FOR RENT</span>
-                        </div>
-                        <div class="property-desc">
-                            <h4><a href="properties-details.html">Mariyasa de Casel </a></h4>
-                            <p>
-                                <span class="location">22 First street, Chicago, USA</span>
-                                <span class="property-info">1200 Sqft, 3 Bed, 2 Bath, 1 Garage </span>
-                            </p>
-                            <div class="price-box">
-                                <p>Price $ 1,59,000</p>
+                @foreach($properties_rent as $property)
+                    <div class="col-lg-3 col-sm-6">
+                        <!-- single-property Start -->
+                        <div class="single-property mt-30">
+                            <div class="property-img">
+                                <a href="properties-details.html">
+                                    <img src="{{getImagePath(imageName: $property->image,folder: 'property')}}" width="300" height="300">
+                                </a>
+                                <span class="level-stryker">{{$property->status}}</span>
+                            </div>
+                            <div class="property-desc">
+                                <h4><a href="properties-details.html">{{$property->title}} </a></h4>
+                                <p>
+                                    <span class="location">{{$property->location}},</span>
+                                    <span class="property-info">{{$property->area}} Sqft, {{$property->bedroom}} Bedroom, {{$property->bathroom}} Bathroom, {{$property->garage}} Garage </span>
+                                </p>
+                                <div class="price-box">
+                                    <p>Price ${{$property->price}}</p>
+                                </div>
                             </div>
                         </div>
+                        <!-- single-property End -->
                     </div>
-                    <!-- single-property End -->
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <!-- single-property Start -->
-                    <div class="single-property mt-30">
-                        <div class="property-img">
-                            <a href="properties-details.html">
-                                <img src="assets/images/propertes/02.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="property-desc">
-                            <h4><a href="properties-details.html">Rose de Alfanez</a></h4>
-                            <p>
-                                <span class="location">132 Future Street, Boston, USA</span>
-                                <span class="property-info">1600 Sqft, 4 Bed, 2 Bath, 2 Garage </span>
-                            </p>
-                            <div class="price-box">
-                                <p>Price $ 1,59,000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-property End -->
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <!-- single-property Start -->
-                    <div class="single-property mt-30">
-                        <div class="property-img">
-                            <a href="properties-details.html">
-                                <img src="assets/images/propertes/03.jpg" alt="">
-                            </a>
-                            <span class="level-stryker-2">FOR RENT</span>
-                        </div>
-                        <div class="property-desc">
-                            <h4><a href="properties-details.html">La Casanda Villa</a></h4>
-                            <p>
-                                <span class="location">1 DE Silicon Tower, Denver</span>
-                                <span class="property-info">1800 Sqft, 6 Bed, 4 Bath, 3 Garage </span>
-                            </p>
-                            <div class="price-box">
-                                <p>Price $2,32,000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-property End -->
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <!-- single-property Start -->
-                    <div class="single-property mt-30">
-                        <div class="property-img">
-                            <a href="properties-details.html">
-                                <img src="assets/images/propertes/04.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="property-desc">
-                            <h4><a href="properties-details.html">Rainforest de Olive</a></h4>
-                            <p>
-                                <span class="location">22 First street, Chicago, USA</span>
-                                <span class="property-info">1200 Sqft, 3 Bed, 2 Bath, 1 Garage </span>
-                            </p>
-                            <div class="price-box">
-                                <p>Rent $32,00/m</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-property End -->
-                </div>
+                @endforeach
 
             </div>
 

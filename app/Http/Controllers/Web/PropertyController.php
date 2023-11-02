@@ -8,9 +8,11 @@ use App\Models\Comment;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Services\WebServices\PropertyService;
+
 class PropertyController extends Controller
 {
     protected $propertyService;
+
     public function __construct(PropertyService $propertyService)
     {
         $this->propertyService = $propertyService;
@@ -18,12 +20,12 @@ class PropertyController extends Controller
 
     public function index()
     {
-        $properties=Property::paginate(12);
-        $properties_buy=Property::where('status','For Buy')->paginate(12);
-        $properties_sale=Property::where('status','For Sale')->paginate(12);
-        $properties_rent=Property::where('status','For Rent')->paginate(12);
+        $properties = Property::paginate(12);
+        $properties_buy = Property::where('status', 'For Buy')->paginate(12);
+        $properties_sale = Property::where('status', 'For Sale')->paginate(12);
+        $properties_rent = Property::where('status', 'For Rent')->paginate(12);
 
-        return view('web.property.index',compact('properties','properties_buy','properties_sale','properties_rent'));
+        return view('web.property.index', compact('properties', 'properties_buy', 'properties_sale', 'properties_rent'));
     }
 
 
@@ -31,6 +33,12 @@ class PropertyController extends Controller
     {
         $featuresEnum = ['air_conditioning', 'parking', 'lift', 'Bedding', 'Balcony', 'pool', 'cable_tv', 'dish_washer', 'internet', 'toaster'];
         return view('web.property.create', compact('featuresEnum'));
+    }
+
+    public function show()
+    {
+        $properties = Property::all();
+        return view('web.property.show',compact('properties'));
     }
 
 //    Add Property
