@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\PropertyRequest;
+use App\Models\Comment;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Services\WebServices\PropertyService;
@@ -45,6 +46,7 @@ class PropertyController extends Controller
     public function show(Property $property)
     {
         $features = explode(',', $property->features);
+
         $latest = Property::orderBy('created_at', 'desc')
             ->take(3)
             ->get();
