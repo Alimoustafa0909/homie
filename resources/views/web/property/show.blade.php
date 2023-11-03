@@ -267,46 +267,19 @@
                                 </h4>
 
                                 <div class="row our-widget-agent mt-10">
+                                    @foreach($latestAgent as $agent)
+
                                     <div class="col-6">
                                         <div class="widget-agent">
                                             <div class="image">
-                                                <a href="#"><img src="assets/images/agents/side-01.jpg" alt=""></a>
+                                                <a href=""><img src="{{getImagePath(imageName:$agent->image,folder:'agents')}}" alt=""></a>
                                             </div>
                                             <div class="name">
-                                                <h5>Bayazid Smith</h5>
+                                                <h5>{{$agent->name}}</h5>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6">
-                                        <div class="widget-agent">
-                                            <div class="image">
-                                                <a href="#"> <img src="assets/images/agents/side-02.jpg" alt=""></a>
-                                            </div>
-                                            <div class="name">
-                                                <h5>Bayazid Smith</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="widget-agent">
-                                            <div class="image">
-                                                <a href="#"><img src="assets/images/agents/side-03.jpg" alt=""></a>
-                                            </div>
-                                            <div class="name">
-                                                <h5>Bayazid Smith</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="widget-agent">
-                                            <div class="image">
-                                                <a href="#"><img src="assets/images/agents/side-04.jpg" alt=""></a>
-                                            </div>
-                                            <div class="name">
-                                                <h5>Bayazid Smith</h5>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
 
@@ -315,12 +288,9 @@
                                     <span>Tag</span>
                                 </h4>
                                 <ul class="tag mt-20">
-                                    <li><a href="#">Real Estate</a></li>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">Duplex</a></li>
+                                    <li><a href="#">House</a></li>
                                     <li><a href="#">Villa</a></li>
-                                    <li><a href="#">Appartment</a></li>
-                                    <li><a href="#">Property</a></li>
+                                    <li><a href="#">Department</a></li>
 
                                 </ul>
                             </div>
