@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Web\AgentController;
 use App\Http\Controllers\Web\CommentController;
 use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\HomeController;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('web.home');
 Route::get('myProperties', [PropertyController::class, 'myProperty'])->name('myProperty');
 
+Route::get('/agents', [AgentController::class,'index'])->name('web.agents');
 Route::view('/admins/login', 'auth.admin_login')->name('admins.login-form');
 Route::post('/dashboard/login', [AuthController::class, 'dashboardLogin'])->name('admins.login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('dashboard.logout');
