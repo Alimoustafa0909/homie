@@ -40,7 +40,7 @@
                     <h2>Agent</h2>
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('web.home')}}">Home</a></li>
                         <li class="breadcrumb-item active">Agent</li>
                     </ul>
                     <!-- breadcrumb-list end -->
