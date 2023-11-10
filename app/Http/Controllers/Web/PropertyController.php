@@ -41,7 +41,7 @@ class PropertyController extends Controller
     public function store(PropertyRequest $request)
     {
         $this->propertyService->addProperty($request);
-        return redirect()->route('properties.create')->with('message', 'The Property has been Added Successfully');
+        return redirect()->route('properties.index')->with('message', 'The Property has been Added Successfully');
     }
 
     public function show(Property $property)
@@ -73,6 +73,7 @@ class PropertyController extends Controller
 
     public function destroy(Property $property)
     {
+
         $property->delete();
         return redirect()->route('properties.index')->with('success', 'Property Deleted successfully');
     }

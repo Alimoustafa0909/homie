@@ -2,8 +2,10 @@
 
 @section('content')
 
-    @if( session()->has('success_message') )
-        @include('dashboard.partials.success_alert')
+    @if( session()->has('success') )
+        <div class="alert alert-success" role="alert">
+            {{session()->get('success')}}
+        </div>
     @endif
     <!--begin::Card-->
     <div class="card m-10">
