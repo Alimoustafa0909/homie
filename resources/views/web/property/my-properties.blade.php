@@ -40,9 +40,8 @@
                                         <td>{{ $property->price}}</td>
                                         <td>{{ $property->status }}</td>
                                         <td>
-                                            <a href="." class="btn btn-light-dark"> Edit</a>
-                                            <a href="." class="btn btn-light-primary">Delete</a>
-
+                                            <a href="{{route('properties.edit',$property)}}" class="btn btn-light-dark"> Edit</a>
+                                            <a href="{{route('properties.delete',$property)}}" class="btn btn-light-primary">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

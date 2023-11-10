@@ -6,6 +6,12 @@
 
     <main class="page-content section">
 
+        @if( session()->has('success') )
+            <div class="alert alert-success" role="alert">
+                {{session()->get('success  ')}}
+            </div>
+        @endif
+
         <!-- Featured Properites Start -->
         <div class="featured-properites-section section pt-100 pt-md-80 pt-sm-60 pb-100 pb-md-80 pb-sm-60">
             <div class="container">
