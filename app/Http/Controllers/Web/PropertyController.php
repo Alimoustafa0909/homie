@@ -41,7 +41,7 @@ class PropertyController extends Controller
     public function store(PropertyRequest $request)
     {
         $this->propertyService->addProperty($request);
-        return redirect()->route('properties.create')->with('message', 'The Property has been Added Successfully');
+        return redirect()->route('properties.index')->with('message', 'The Property has been Added Successfully');
     }
 
     public function show(Property $property)
@@ -55,8 +55,27 @@ class PropertyController extends Controller
         $latestAgent = Agent::orderBy('created_at', 'desc')
             ->take(4)
             ->get();
-        return view('web.property.show', compact('property', 'features', 'latest', 'comments','latestAgent'));
+        return view('web.property.show', compact('property', 'features', 'latest', 'comments', 'latestAgent'));
+    }
 
+    public function edit(Property $property)
+    {
+        $featuresEnum = ['air_conditioning', 'parking', 'lift', 'Bedding', 'Balcony', 'pool', 'cable_tv', 'dish_washer', 'internet', 'toaster'];
+        return view('web.property.edit', compact('property', 'featuresEnum'));
+    }
+
+    public function update(PropertyRequest $request, Property $property)
+    {
+        $this->propertyService->updateProperty($request, $property);
+        return redirect()->route('properties.index')->with('success', 'Property updated successfully');
+    }
+
+
+    public function destroy(Property $property)
+    {
+
+        $property->delete();
+        return redirect()->route('properties.index')->with('success', 'Property Deleted successfully');
     }
 
     public function myProperty()
@@ -64,4 +83,5 @@ class PropertyController extends Controller
         $properties = Property::all();
         return view('web.property.my-properties', compact('properties'));
     }
+
 }

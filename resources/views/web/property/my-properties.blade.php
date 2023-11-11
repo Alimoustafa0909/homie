@@ -27,7 +27,8 @@
                                     <th> Description</th>
                                     <th> Price</th>
                                     <th> Status</th>
-                                    <th> Action</th>
+                                    <th> Actions</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -40,9 +41,13 @@
                                         <td>{{ $property->price}}</td>
                                         <td>{{ $property->status }}</td>
                                         <td>
-                                            <a href="." class="btn btn-light-dark"> Edit</a>
-                                            <a href="." class="btn btn-light-primary">Delete</a>
+                                            <a href="{{ route('properties.edit', $property) }}" class="btn btn-light-dark">Edit</a>
 
+                                            <form method="POST" action="{{ route('properties.destroy', $property) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-light-dark" type="submit">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -51,7 +56,7 @@
                     </div>
                     @else
                         <h1> You Didn't Add Any Property Yet  </h1>
-                        <a href="{{route('properties.index')}}" type="button"> Try to Add Property </a>
+                        <a href="{{route('properties.create')}}" class="btn btn-light-dark"> Try to Add Property </a>
                     @endif
                 </div>
             </div>

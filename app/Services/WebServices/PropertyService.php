@@ -22,4 +22,15 @@ class PropertyService
 
         Property::create($attributes);
     }
+
+    public function updateProperty(PropertyRequest $request, Property $property)
+    {
+        $attributes = $request->validated();
+
+        if ($request->file('image')) {
+            $attributes['image'] = uploadImage($request->file('image'), 'property');
+        }
+
+        $property->update($attributes);
+    }
 }
