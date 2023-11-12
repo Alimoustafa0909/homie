@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Dashboard;
+namespace App\Http\Requests\Web;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ContactRequest extends FormRequest
+class AgentContactRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ContactRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,15 +23,13 @@ class ContactRequest extends FormRequest
      */
     public function rules()
     {
-       return [
+        return [
             'name' => ['required'],
             'email' => ['required','email','max:255'],
             'message' => ['required'],
-           'phone' => ['nullable'],
-           'subject' => ['nullable'],
-
-
-       ];
-
+            'subject' => ['required'],
+            'phone' => ['required','max:15'],
+            'agent_id'=>['required'],
+        ];
     }
 }

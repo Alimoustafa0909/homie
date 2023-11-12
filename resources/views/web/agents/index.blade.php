@@ -64,7 +64,11 @@
                         <img src="{{ getImagePath(imageName:$agent->image,folder:'agents')}}" alt="">
 
                         <div class="agents-info">
-                            <h3>View Details</h3>
+
+                            <a href="{{ route('agent.details', $agent->id) }}">
+                                <h3> View Details</h3>
+                            </a>
+
                             <div class="agents-social">
                                 <ul>
                                     <li><a href="https://www.skype.com/en/"><i class="fa fa-skype"></i></a></li>
@@ -77,8 +81,10 @@
 
                     </div>
                     <div class="agents-contents">
-                        <h4>{{$agent->name}}</h4>
-                        <p>{{$agent->title}}</p>
+                        <a href="{{ route('agent.details', $agent->id) }}">
+                            <h4>{{ $agent->name }}</h4>
+                        </a>
+                        <p>{{ $agent->title }}</p>
                     </div>
                 </div>
                 <!-- Our Agents End -->

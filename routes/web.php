@@ -23,6 +23,10 @@ Route::get('/', [HomeController::class, 'index'])->name('web.home');
 Route::get('myProperties', [PropertyController::class,'myProperty'])->name('myProperty');
 
 Route::get('/agents', [AgentController::class,'index'])->name('web.agents');
+Route::get('/agent/details/{id}', [AgentController::class,'agentDetails'])->name('agent.details');
+Route::post('/agent/contact', [AgentController::class,'agentContact'])->name('agent.contact');
+
+
 Route::view('/admins/login', 'auth.admin_login')->name('admins.login-form');
 Route::post('/dashboard/login', [AuthController::class, 'dashboardLogin'])->name('admins.login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('dashboard.logout');
