@@ -20,8 +20,8 @@ class CommentController extends Controller
 
     public function store(CommentRequest $request)
     {
-         $this->commentService->store($request);
-        return redirect()->back()->with('success_message','The comment has been added successfully');
+        $this->commentService->store($request);
+        return redirect()->back()->with('success_message', 'The comment has been added successfully');
 
     }
 }

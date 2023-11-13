@@ -9,10 +9,11 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
-        $properties_sale=Property::where('status','For Sale')->get();
-        $properties_rent=Property::where('status','For Rent')->get();
-        $agents=Agent::all();
-        return view ('web.home',compact('properties_sale','properties_rent','agents'));
+    public function index()
+    {
+        $properties_sale = Property::where('status', 'For Sale')->get();
+        $properties_rent = Property::where('status', 'For Rent')->get();
+        $agents = Agent::all();
+        return view('web.home', compact('properties_sale', 'properties_rent', 'agents'));
     }
 }
