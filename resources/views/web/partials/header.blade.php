@@ -67,9 +67,9 @@
                                         <li><a href="register.html">Register Page</a></li>
                                     </ul>
                                 </li>
-                                <li class="has-dropdown"><a href="{{route('web.agents')}}">Agent</a>
+                                <li class="has-dropdown"><a href="{{route('web.agents')}}">Agents</a>
                                     <ul class="sub-menu">
-                                        <li><a href="{{route('web.agents')}}">Agent</a></li>
+                                        <li><a href="{{route('web.agents')}}">Agents</a></li>
 {{--                                        <li><a href="{{route('agent.details')}}">Agent Details</a></li>--}}
                                     </ul>
                                 </li>

@@ -34,12 +34,10 @@ class AgentController extends Controller
         return view('web.agents.agent-details', compact('agent'));
     }
 
-    public function agentContact(AgentContactRequest $request,Agent $agent)
+    public function agentContact(AgentContactRequest $request, $id)
     {
-
-        $attributes = $request->validated();
-        $request->agent_id = $agent->id;
-        AgentContact::create($attributes);
-        return redirect()->route('agent.index')->with('success','Your Message Has Been Sent Successfully');
+        $this->agentService->storeContact($request, $id);
+        return back()->with('success', 'Your Message Has Been Sent Successfully');
     }
+
 }

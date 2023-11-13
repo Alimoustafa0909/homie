@@ -57,6 +57,11 @@
     <div class="our-agents-section section pt-100 pt-md-80 pt-sm-60 pb-100 pb-md-80 pb-sm-60">
         <div class="container">
 
+            @if( session()->has('success') )
+                <div class="alert alert-success" role="alert">
+                    {{session()->get('success')}}
+                </div>
+            @endif
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <!-- Our Agents Start -->
@@ -171,7 +176,7 @@
 
                         <div class="comment-form">
 
-                            <form action="{{ route('agent.contact',$agent) }}" method="post">
+                            <form action="{{ route('agent.contact',$agent->id) }}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6 mb-30">
@@ -196,7 +201,7 @@
                                     </div>
 
                                     <div class="col-md-6 col-12 mb-30">
-                                        <input name="phone" type="phone" placeholder="Phone">
+                                        <input name="phone" type="tel" placeholder="Phone">
                                         @error('phone')
                                         <p class="text-danger">{{ $message }}</p>
                                         @enderror

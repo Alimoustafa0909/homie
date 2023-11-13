@@ -13,7 +13,7 @@ class AgentContactRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,11 +25,11 @@ class AgentContactRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'email' => ['required','email','max:255'],
+            'email' => ['required', 'email', 'max:255'],
             'message' => ['required'],
             'subject' => ['required'],
-            'phone' => ['required','max:15'],
-            'agent_id'=>['required'],
+            'phone' => ['required', 'max:20'], //  max length for phone
+            'agent_id' => [],
         ];
     }
 }

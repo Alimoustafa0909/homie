@@ -24,7 +24,7 @@ Route::get('myProperties', [PropertyController::class,'myProperty'])->name('myPr
 
 Route::get('/agents', [AgentController::class,'index'])->name('web.agents');
 Route::get('/agent/details/{id}', [AgentController::class,'agentDetails'])->name('agent.details');
-Route::post('/agent/contact', [AgentController::class,'agentContact'])->name('agent.contact');
+Route::post('/agent/contact/{id}', [AgentController::class,'agentContact'])->name('agent.contact');
 
 
 Route::view('/admins/login', 'auth.admin_login')->name('admins.login-form');
