@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Web;
+
 use App\Http\Requests\Dashboard\ContactRequest;
 use App\Services\WebServices\ContactService;
 use Illuminate\Routing\Controller;
@@ -13,18 +14,17 @@ class ContactController extends Controller
     {
         $this->contactService = $contactService;
     }
+
     public function index()
     {
         $configData = Config('website');
-        return view('web.contact-us',compact('configData'));
+        return view('web.contact-us', compact('configData'));
     }
 
     public function store(ContactRequest $request)
     {
-
         $this->contactService->store($request);
-
-        return redirect()->route('contact.index')->with('message','Sent! we will get back to you as soon as possible');
+        return redirect()->route('contact.index')->with('message', 'Sent! we will get back to you as soon as possible');
 
     }
 }

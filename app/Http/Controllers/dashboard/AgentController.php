@@ -17,46 +17,47 @@ class AgentController extends Controller
     {
         $this->agentService = $agentService;
     }
+
     public function index()
     {
-      $agents = Agent::paginate(3);
-      return view('dashboard.agents.index',compact('agents'));
+        $agents = Agent::paginate(3);
+        return view('dashboard.agents.index', compact('agents'));
     }
 
     public function create()
     {
-       return view('dashboard.agents.create');
+        return view('dashboard.agents.create');
     }
 
     public function store(AgentRequest $request)
     {
         $this->agentService->store($request);
 
-        return redirect()->route('dashboard.agents.index')->with('success_message','The agent has been created successfully');
+        return redirect()->route('dashboard.agents.index')->with('success_message', 'The agent has been created successfully');
     }
 
     public function edit(Agent $agent)
     {
-        return view('dashboard.agents.edit',compact('agent'));
+        return view('dashboard.agents.edit', compact('agent'));
     }
 
-    public function update(AgentRequest $request,Agent $agent)
+    public function update(AgentRequest $request, Agent $agent)
     {
 
         $this->agentService->Update($agent, $request);
 
-        return redirect()->route('dashboard.agents.index')->with('success_message','The agent has been Updated successfully');
+        return redirect()->route('dashboard.agents.index')->with('success_message', 'The agent has been Updated successfully');
     }
 
     public function show(Agent $agent)
     {
-        return view('dashboard.agents.show',compact('agent'));
+        return view('dashboard.agents.show', compact('agent'));
     }
 
     public function destroy(Agent $agent)
     {
         $agent->delete();
-        return redirect()->route('dashboard.agents.index')->with('success_message','The agent has been Deleted successfully');
+        return redirect()->route('dashboard.agents.index')->with('success_message', 'The agent has been Deleted successfully');
 
     }
 

@@ -310,14 +310,17 @@
             </div>
 
             <div class="row">
+                @foreach($agents as $agent)
                 <div class="col-lg-3 col-sm-6">
                     <!-- Our Agents Start -->
                     <div class="our-agents mt-30">
                         <div class="agents-image">
-                            <img src="assets/images/agents/agents-01.jpg" alt="">
+                            <img src="{{ getImagePath(imageName:$agent->image,folder:'agents')}}" alt="">
 
                             <div class="agents-info">
-                                <h3>View Details</h3>
+                                <a href="{{ route('agent.details', $agent->id) }}">
+                                    <h3> View Details</h3>
+                                </a>
                                 <div class="agents-social">
                                     <ul>
                                         <li><a href="https://www.skype.com/en/"><i class="fa fa-skype"></i></a></li>
@@ -330,93 +333,13 @@
 
                         </div>
                         <div class="agents-contents">
-                            <h4>Jassica Thomson</h4>
-                            <p>Real Estate Agent</p>
+                            <h4>{{$agent->name}}</h4>
+                            <p>{{$agent->title}}</p>
                         </div>
                     </div>
                     <!-- Our Agents End -->
                 </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <!-- Our Agents Start -->
-                    <div class="our-agents mt-30">
-                        <div class="agents-image">
-                            <img src="assets/images/agents/agents-06.jpg" alt="">
-
-                            <div class="agents-info">
-                                <h3>View Details</h3>
-                                <div class="agents-social">
-                                    <ul>
-                                        <li><a href="https://www.skype.com/en/"><i class="fa fa-skype"></i></a></li>
-                                        <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="agents-contents">
-                            <h4>Thomas Eilliams</h4>
-                            <p>Real Estate Agent</p>
-                        </div>
-                    </div>
-                    <!-- Our Agents End -->
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <!-- Our Agents Start -->
-                    <div class="our-agents mt-30">
-                        <div class="agents-image">
-                            <img src="assets/images/agents/agents-03.jpg" alt="">
-
-                            <div class="agents-info">
-                                <h3>View Details</h3>
-                                <div class="agents-social">
-                                    <ul>
-                                        <li><a href="https://www.skype.com/en/"><i class="fa fa-skype"></i></a></li>
-                                        <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="agents-contents">
-                            <h4>Sayana Sarlin</h4>
-                            <p>Real Estate Agent</p>
-                        </div>
-                    </div>
-                    <!-- Our Agents End -->
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <!-- Our Agents Start -->
-                    <div class="our-agents mt-30">
-                        <div class="agents-image">
-                            <img src="assets/images/agents/agents-04.jpg" alt="">
-
-                            <div class="agents-info">
-                                <h3>View Details</h3>
-                                <div class="agents-social">
-                                    <ul>
-                                        <li><a href="https://www.skype.com/en/"><i class="fa fa-skype"></i></a></li>
-                                        <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="agents-contents">
-                            <h4>Kuddus Boyati</h4>
-                            <p>Real Estate Agent</p>
-                        </div>
-                    </div>
-                    <!-- Our Agents End -->
-                </div>
+                @endforeach
 
             </div>
 

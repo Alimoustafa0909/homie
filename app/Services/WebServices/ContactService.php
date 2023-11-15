@@ -10,6 +10,5 @@ class ContactService
     {
         $attributes = $request->validated();
         Contact::create($attributes);
-
     }
 }
