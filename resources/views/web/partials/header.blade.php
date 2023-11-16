@@ -10,9 +10,19 @@
 
                 <div class="col-lg-6 col-md-6">
                     <div class="header-buttons">
-                        <a class="header-btn btn" href="{{route('properties.create')}}">Add Property</a>
-                        <a class="header-btn btn-border" href="register.html">Register</a>
-                        <a class="header-btn" href="login.html">Login</a>
+                        <a class="header-btn btn" href="{{ route('properties.create') }}">Add Property</a>
+
+                        @if(Auth::check())
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a class="header-btn" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                                    Logout
+                                </a>
+                            </form>
+                        @else
+                            <a class="header-btn btn-border" href="{{ route('register') }}">Register</a>
+                            <a class="header-btn" href="{{ route('login') }}">Login</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -63,8 +73,8 @@
                                         </li>
                                         <li><a href="about-us.html">About Page</a></li>
                                         <li><a href="create-agency.html">Create agency</a></li>
-                                        <li><a href="login.html">Login Page</a></li>
-                                        <li><a href="register.html">Register Page</a></li>
+                                        <li><a href="{{route('login')}}">Login Page</a></li>
+                                        <li><a href="{{route('register')}}">Register Page</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-dropdown"><a href="{{route('web.agents')}}">Agents</a>

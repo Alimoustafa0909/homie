@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Web\AgentController;
 use App\Http\Controllers\Web\CommentController;
@@ -20,11 +21,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('web.home');
-Route::get('myProperties', [PropertyController::class,'myProperty'])->name('myProperty');
+Route::get('myProperties', [PropertyController::class, 'myProperty'])->name('myProperty');
 
-Route::get('/agents', [AgentController::class,'index'])->name('web.agents');
-Route::get('/agent/details/{id}', [AgentController::class,'agentDetails'])->name('agent.details');
-Route::post('/agent/contact/{id}', [AgentController::class,'agentContact'])->name('agent.contact');
+Route::get('/agents', [AgentController::class, 'index'])->name('web.agents');
+Route::get('/agent/details/{id}', [AgentController::class, 'agentDetails'])->name('agent.details');
+Route::post('/agent/contact/{id}', [AgentController::class, 'agentContact'])->name('agent.contact');
 
 
 Route::view('/admins/login', 'auth.admin_login')->name('admins.login-form');
@@ -33,4 +34,13 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('dashboard.logou
 
 Route::resource('contact', ContactController::class)->only(['index', 'store']);
 Route::resource('properties', PropertyController::class);
-Route::resource('comments', CommentController::class)->only([ 'store']);
+Route::resource('comments', CommentController::class)->only(['store']);
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
