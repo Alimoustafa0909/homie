@@ -4,10 +4,11 @@ namespace App\Services\WebServices;
 
 use App\Http\Requests\Web\PropertyRequest;
 use App\Models\Property;
+use Illuminate\Support\Facades\Auth;
 
 class PropertyService
 {
-    public function addProperty(PropertyRequest $request)
+    public function addProperty(PropertyRequest $request,)
     {
         $attributes = $request->validated();
 
@@ -17,8 +18,9 @@ class PropertyService
         }
         // Upload the image and set the image attribute
 
-        if($request->file('image'))
-           $attributes['image'] = uploadImage($request->file('image'), 'property');
+        if ($request->file('image'))
+            $attributes['image'] = uploadImage($request->file('image'), 'property');
+        $attributes['user_id'] = Auth::id();
 
         Property::create($attributes);
     }

@@ -10,7 +10,7 @@
 
                 <div class="col-lg-6 col-md-6">
                     <div class="header-buttons">
-                        <a class="header-btn btn" href="{{ route('properties.create') }}">Add Property</a>
+                        <a class="header-btn btn" href="{{ route('properties_create') }}">Add Property</a>
 
                         @if(Auth::check())
                             <form method="POST" action="{{ route('logout') }}">
@@ -86,9 +86,7 @@
                                 <li><a href="{{route('contact.index')}}">Contact</a></li>
                             </ul>
                         </nav>
-                        <div id="search-overlay-trigger" class="search-icon">
-                            <a href="javascript:void(0)"><i class="fa fa-search"></i></a>
-                        </div>
+
                     </div>
                 </div>
 
