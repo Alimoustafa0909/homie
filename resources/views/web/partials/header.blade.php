@@ -44,10 +44,10 @@
                         <nav class="main-menu d-lg-block d-none">
                             <ul>
                                 <li class="has-dropdown"><a href="/">Home</a></li>
-                                <li class="has-dropdown"><a href="service.html">Services</a>
+                                <li class="has-dropdown"><a href="{{route('web.services')}}">Services</a>
                                     <ul class="sub-menu">
-                                        <li><a href="service.html">Services</a></li>
-                                        <li><a href="single-service.html">Single Services</a></li>
+                                        <li><a href="{{route('web.services')}}">Services</a></li>
+
                                     </ul>
                                 </li>
                                 <li><a href="features.html">Features</a></li>

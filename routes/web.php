@@ -7,6 +7,7 @@ use App\Http\Controllers\Web\CommentController;
 use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\PropertyController;
+use App\Http\Controllers\Web\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('web.home');
 Route::get('myProperties', [PropertyController::class, 'myProperty'])->name('myProperty');
 
+//Route::view('/services','web.services');
+Route::get('/services', [ServiceController::class, 'index'])->name('web.services');
 Route::get('/agents', [AgentController::class, 'index'])->name('web.agents');
 Route::get('/agent/details/{id}', [AgentController::class, 'agentDetails'])->name('agent.details');
 Route::post('/agent/contact/{id}', [AgentController::class, 'agentContact'])->name('agent.contact');
