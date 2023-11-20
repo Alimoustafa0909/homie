@@ -10,6 +10,7 @@ Route::group(['namespace' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 
     Route::resource('agents', 'AgentController');
     Route::resource('contact', 'ContactController')->except(['store', 'create', 'edit', 'update']);
     Route::resource('property', 'PropertyController')->only(['index', 'destroy','show']);
+    Route::resource('services', 'ServiceController');
 
 
     Route::post('/logout', 'AdminController@logout')->name('logout');
