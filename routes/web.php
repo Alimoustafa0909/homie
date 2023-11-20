@@ -28,10 +28,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('web.home');
 
-Route::get('myProperties/{id}', [PropertyController::class, 'myProperty'])->name('myProperty');
-
-Route::get('myProperties', [PropertyController::class, 'myProperty'])->name('myProperty');
-
+Route::get('/myProperties/{id}', [PropertyController::class, 'myProperty'])->name('myProperty');
 Route::get('/services', [ServiceController::class, 'index'])->name('web.services');
 
 Route::get('/agents', [AgentController::class, 'index'])->name('web.agents');

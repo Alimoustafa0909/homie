@@ -15,13 +15,29 @@
         <!-- Featured Properites Start -->
         <div class="featured-properites-section section pt-100 pt-md-80 pt-sm-60 pb-100 pb-md-80 pb-sm-60">
             <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="header-left">
+                        {{-- Search Component --}}
+                        @livewire('header-search-component')
+                        {{-- End Search --}}
+                    </div>
 
-                <ul class="properties-list nav justify-content-end">
-                    <li class="active"><a class="active" href="#all" data-bs-toggle="tab">ALL</a></li>
-                    <li><a href="#buy" data-bs-toggle="tab">FOR BUY</a></li>
-                    <li><a href="#sale" data-bs-toggle="tab">FOR SALE</a></li>
-                    <li><a href="#rent" data-bs-toggle="tab">FOR RENT</a></li>
-                </ul>
+
+                    <ul class="properties-list nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#all" data-bs-toggle="tab">ALL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#buy" data-bs-toggle="tab">FOR BUY</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sale" data-bs-toggle="tab">FOR SALE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#rent" data-bs-toggle="tab">FOR RENT</a>
+                        </li>
+                    </ul>
+                </div>
 
                 <div class="tab-content">
                     {{--     Start  All Properties            --}}
