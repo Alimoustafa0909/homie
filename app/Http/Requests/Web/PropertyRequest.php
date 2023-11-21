@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Web;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PropertyRequest extends FormRequest
 {
@@ -35,7 +36,9 @@ class PropertyRequest extends FormRequest
             'bathroom' => 'required|integer',
             'garage' => 'required|integer',
             'features' => 'nullable|array',
-            'image'=>'nullable'
+            'image'=>'nullable',
+            'user_id' => [],
+
         ];
     }
 }

@@ -5,4 +5,6 @@
 <script src="{{asset('assets/js/maplace-active.js')}}"></script>
 <!-- Main JS -->
 <script src="{{asset('assets/js/main.js')}}"></script>
+
+@livewireScripts
 @stack('scripts')

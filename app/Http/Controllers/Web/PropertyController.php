@@ -78,10 +78,11 @@ class PropertyController extends Controller
         return redirect()->route('properties.index')->with('success', 'Property Deleted successfully');
     }
 
-    public function myProperty()
+    public function myProperty($id)
     {
-        $properties = Property::all();
+        $properties=Property::where('user_id',$id)->get();
         return view('web.property.my-properties', compact('properties'));
+
     }
 
 }
